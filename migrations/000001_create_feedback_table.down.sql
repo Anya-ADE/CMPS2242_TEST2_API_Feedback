@@ -1,1 +1,1 @@
-DROP TABLE IF NOT EXISTS feedback;
+DROP TABLE IF EXISTS feedback;
