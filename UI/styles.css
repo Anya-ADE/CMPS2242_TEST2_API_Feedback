@@ -5,49 +5,61 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #1a1a2e;
-    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .container {
     max-width: 500px;
-    margin: 0 auto;
-    background: #0f0f1a;
-    padding: 30px;
-    border-radius: 10px;
-    border: 1px solid #333;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
 }
 
 h1 {
-    color: #fff;
-    margin-bottom: 20px;
+    color: #333;
+    margin-bottom: 30px;
     text-align: center;
+    font-size: 28px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    color: #ccc;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 input, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background: #1a1a2a;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s;
+    font-family: inherit;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input.error, textarea.error {
+    border-color: #dc3545;
 }
 
 textarea {
@@ -57,34 +69,59 @@ textarea {
 
 button {
     width: 100%;
-    background: #667eea;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 10px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 10px;
     font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 button:hover {
-    background: #5a67d8;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 .message {
     margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 10px;
     display: none;
 }
 
 .message.success {
-    background: #0d3b2e;
-    color: #00ff9d;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
     display: block;
 }
 
 .message.error {
-    background: #3b1a1a;
-    color: #ff6b6b;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+.placeholder-text {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-text.show {
     display: block;
 }

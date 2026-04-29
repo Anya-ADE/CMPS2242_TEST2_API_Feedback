@@ -1,0 +1,60 @@
+# 1. Create New Feedbacks (POST)
+curl -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"John Smith","email":"john.smith@example.com","subject":"Great Service","message":"The API is working perfectly. Very satisfied with the response time."}'
+
+curl -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"Jane Doe","email":"jane.doe@example.com","subject":"Feature Request","message":"Would love to see pagination added to the API."}'
+
+
+# 2. Show All Feedback (GET)
+curl -i http://localhost:4000/api/feedback
+
+
+# 3. List Only Names (GET)
+curl -i http://localhost:4000/api/feedback/names
+
+
+# 4. List Only Emails (GET)
+curl -i http://localhost:4000/api/feedback/emails
+
+
+# 5. List Only Subjects (GET)
+curl -i http://localhost:4000/api/feedback/subjects
+
+
+# 6. List Only Messages (GET)
+curl -i http://localhost:4000/api/feedback/messages
+
+
+# 7. Get Single Feedback (GET)
+curl -i http://localhost:4000/api/feedback/1
+
+
+# 8. Update Feedback (PUT)
+curl -i -X PUT http://localhost:4000/api/feedback/1 -H "Content-Type: application/json" -d '{"message": "Updated: The API is even better now with the new features!"}'
+
+
+# 9. Delete Feedback (DELETE)
+curl -i -X DELETE http://localhost:4000/api/feedback/2
+
+
+# 10. Health Check (GET)
+curl -i http://localhost:4000/health
+
+
+# 11. Name Too Short (Validation Error)
+curl -i -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"J","email":"test@test.com","subject":"Test","message":"Test message"}'
+
+
+# 12. Invalid Email (Validation Error)
+curl -i -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"John Doe","email":"invalid-email","subject":"Test","message":"Test message"}'
+
+
+# 13. Subject Too Short (Validation Error)
+curl -i -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"John Doe","email":"test@test.com","subject":"Te","message":"Test message"}'
+
+
+# 14. Message Too Short (Validation Error)
+curl -i -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"John Doe","email":"test@test.com","subject":"Test","message":"Hi"}'
+
+
+# 15. Missing Required Field (Validation Error)
+curl -i -X POST http://localhost:4000/api/feedback -H "Content-Type: application/json" -d '{"name":"John Doe","email":"test@test.com","subject":"Test"}'
